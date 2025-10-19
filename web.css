@@ -51,6 +51,27 @@ header {
   transform: scale(1.05);
 }
 
+/* ===== ABOUT TYPING/ENTRY ANIMATION STATE ===== */
+.about-container.about-anim {
+  justify-content: center; /* keep photo centered while text grows */
+}
+
+/* While animating, keep paragraph from reserving space until it grows */
+.about-container.about-anim p {
+  flex: 0 1 auto;
+  overflow: hidden;
+}
+
+/* Fast typing caret effect */
+.typing-caret {
+  border-right: 2px solid #00e5ff;
+  animation: caret-blink 0.7s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% { border-color: transparent; }
+}
+
 .about-container p {
   flex: 1;
   font-size: 1.2em;

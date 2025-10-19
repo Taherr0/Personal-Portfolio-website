@@ -29,29 +29,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Animate About section when in view
+  // Animate About section when in view: center img, then fast type paragraph, pushing image left
   const aboutSection = document.querySelector('#about');
-  const aboutElements = document.querySelectorAll('#about img, #about p');
+  const aboutContainer = document.querySelector('#about .about-container');
+  const aboutImg = document.querySelector('#taher');
+  const aboutPara = document.querySelector('#about p');
 
-  aboutElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-  });
+  // Prepare initial states
+  if (aboutContainer && aboutImg && aboutPara) {
+    // Center the photo initially
+    aboutContainer.classList.add('about-anim');
 
-  function showAbout() {
-    const rect = aboutSection.getBoundingClientRect();
-    const trigger = window.innerHeight * 0.8;
-    if (rect.top < trigger) {
-      aboutElements.forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-        el.style.transition = 'all 0.8s ease';
+    // Capture full text and clear for typing
+    const fullText = aboutPara.textContent.trim();
+    aboutPara.dataset.fullText = fullText;
+    aboutPara.textContent = '';
+    // Hide paragraph so photo is perfectly centered at start
+    aboutPara.style.display = 'none';
+    aboutPara.classList.add('typing-caret');
+
+    // Reveal image and paragraph smoothly when section enters view
+    aboutImg.style.opacity = '0';
+    aboutPara.style.opacity = '0';
+    aboutImg.style.transform = 'scale(0.98)';
+    aboutPara.style.transform = 'translateY(6px)';
+    const reveal = () => {
+      aboutImg.style.transition = 'all 500ms ease';
+      aboutPara.style.transition = 'all 500ms ease';
+      aboutImg.style.opacity = '1';
+      aboutPara.style.opacity = '1';
+      aboutImg.style.transform = 'scale(1)';
+      aboutPara.style.transform = 'translateY(0)';
+    };
+
+    // Intersection Observer to trigger typing once in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          reveal();
+          // Begin typing once visible
+          startTyping();
+          observer.disconnect();
+        }
       });
-      window.removeEventListener('scroll', showAbout);
+    }, { threshold: 0.35 });
+    observer.observe(aboutSection);
+
+    function startTyping() {
+      const text = aboutPara.dataset.fullText || '';
+      let index = 0;
+      const step = () => {
+        // Fast typing speed, one letter per tick
+        index = Math.min(index + 1, text.length);
+        if (index === 1) {
+          // Show paragraph on first character so photo stays centered until typing starts
+          aboutPara.style.display = 'block';
+        }
+        aboutPara.textContent = text.slice(0, index);
+
+        // As text grows, allow it to take space which pushes image left
+        if (index > 0) {
+          aboutContainer.style.justifyContent = 'space-between';
+        }
+
+        if (index < text.length) {
+          // Tight interval for fast typing
+          setTimeout(step, 8);
+        } else {
+          // Done typing: remove caret and animation class
+          aboutPara.classList.remove('typing-caret');
+          aboutContainer.classList.remove('about-anim');
+        }
+      };
+      step();
     }
   }
-
-  window.addEventListener('scroll', showAbout);
 });
 const form = document.querySelector('form');
 form.addEventListener('submit', async (e) => {
