@@ -29,6 +29,16 @@ header {
   border-radius: 10px;
   margin: 25px auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  /* Scroll reveal initial state */
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Section becomes visible when scrolled into view */
+.creative-section.in-view {
+  opacity: 1;
+  transform: none;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -52,7 +62,13 @@ header {
 }
 
 .about-container.about-initial .about-text {
-  display: none;
+  /* Keep node in flow but visually collapsed so photo stays centered */
+  max-width: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  overflow: hidden;
 }
 
 #taher {
@@ -80,6 +96,10 @@ header {
 .about-text {
   overflow: hidden;
   white-space: normal;
+  /* Smooth expansion when About activates */
+  max-width: 1000px;
+  opacity: 1;
+  transition: max-width 0.8s ease, opacity 0.4s ease;
 }
 
 /* ===== GRID SECTIONS ===== */
@@ -184,7 +204,7 @@ header {
   margin: 30px auto 0;
   background-color: #1e1e1e;
   padding: 25px;
-  border-radius:
+  border-radius: 15px;
 }
 /* ===== Contact Section Styling Enhancements ===== */
 #contact {

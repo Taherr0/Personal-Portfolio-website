@@ -29,7 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // About: center photo initially, then fast typewriter pushes photo left
+  // Reveal sections on scroll
+  const revealSections = document.querySelectorAll('.creative-section');
+  const revealObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  revealSections.forEach(sec => revealObserver.observe(sec));
+
+  // About: center photo initially, then start typing and push photo left when section is in view
   const aboutSection = document.querySelector('#about');
   const aboutContainer = document.querySelector('#about .about-container');
   const aboutTextEl = document.querySelector('#about .about-text');
