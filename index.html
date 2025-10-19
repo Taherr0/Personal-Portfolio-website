@@ -1,157 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taher Ahmed | Portfolio</title>
-  <link rel="stylesheet" href="web.css" />
-</head>
-<body>
-  <header id="home">
-    <nav class="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#extracurriculars">Extracurriculars</a>
-      <a href="#skills">Skills</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1117" />
+    <title>Portfolio • Your Name</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- About Section -->
-  <section id="about" class="creative-section about-layout">
-    <h1>About Me</h1>
-    <div class="about-container about-initial">
-      <img id="taher" src="taher.jpg" alt="Profile Picture">
-      <p class="about-text">
-       I am Taher Ahmed, a dedicated high school student driven by curiosity and a deep passion for biomedical engineering research. I’m fascinated by how engineering principles can be applied to understand, model, and improve human health. Through exploring topics such as physiology, AI, and bioinstrumentation, I’ve developed a strong interest in how technology can advance diagnostics and medical innovation. Beyond academics, I actively engage in STEM projects, leadership initiatives, and mentorship programs that strengthen both my research and teamwork skills. My long-term goal is to contribute to cutting-edge biomedical discoveries that enhance lives and make healthcare more accessible worldwide.      </p>
-    </div>
-  </section>
+    <header class="site-header" id="home">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Go to home">Your Name</a>
+        <nav class="site-nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" title="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <ul id="nav-menu" class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#extracurriculars">Extracurriculars</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <!-- Education Section -->
-  <section id="education" class="creative-section timeline-layout">
-    <h1>Education</h1>
-    <div class="STEM">
-      <h2>Obour STEM School</h2>
-      <p>Degree: High School Diploma</p>
-      <p>Year: 2024 - Present</p>
-      <p>Expected graduation date: July 2027</p>
-      <p>Grade 11</p>
-      <p>GPA: 3.86</p>
-    </div>
-    <div class="prep">
-      <h2>Delingat Preparatory School for Boys</h2>
-      <p>Degree: Preparatory School Certificate</p>
-      <p>Year: 2021 - 2024</p>
-      <p>GPA: 4.0</p>
-    </div>
-  </section>
+    <main id="main">
+      <!-- Hero / Home -->
+      <section class="section hero reveal" id="home-hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1 id="hero-title">Hi, I'm <span class="accent">Your Name</span></h1>
+            <p class="lead">A <strong>Software Developer</strong> crafting delightful, performant experiences.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="#contact">Contact Me</a>
+              <a class="btn ghost" href="#about">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Extracurriculars -->
-  <section id="extracurriculars" class="creative-section">
-    <h1>Extracurriculars</h1>
+      <!-- About -->
+      <section class="section about reveal" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <h2 id="about-title" class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-photo" aria-hidden="false">
+              <img
+                alt="Profile photo"
+                class="photo-img"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='800'%20height='800'%20viewBox='0%200%20800%20800'%3E%3Crect%20width='800'%20height='800'%20fill='rgb(17,24,39)'/%3E%3Ccircle%20cx='400'%20cy='400'%20r='280'%20fill='rgb(0,229,255)'%20fill-opacity='0.22'/%3E%3Ccircle%20cx='400'%20cy='400'%20r='220'%20fill='rgb(17,24,39)'/%3E%3Ctext%20x='50%25'%20y='52%25'%20dominant-baseline='middle'%20text-anchor='middle'%20font-size='64'%20font-family='ui-sans-serif,system-ui,-apple-system,Segoe%20UI,Roboto,Ubuntu,Cantarell,Noto%20Sans,Helvetica%20Neue,Arial'%20fill='rgb(200,210,220)'%3EYour%20Photo%3C/text%3E%3C/svg%3E"
+              />
+            </div>
+            <div class="about-text">
+              <p class="typing-target" data-full-text="I'm a passionate developer who loves building intuitive, reliable software. I enjoy solving complex problems, collaborating with teams, and crafting clean user experiences. Beyond coding, I explore design, read about systems, and tinker with new technologies.">
+                <!-- typing text will be injected word-by-word by JavaScript -->
+              </p>
+              <p class="muted">Based in Anywhere • Open to remote and on-site roles</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h1 class="bio">Biomedical Engineering Related</h1>
-    <div class="bioeng-group grid-layout">
-      <div class="ACE bme-card">
-        <h2>Academic Helping</h2>
-        <p>Helping 1000+ students understand various chemistry concepts as a chemistry academic member.</p>
-      </div>
-      <div class="iphr bme-card">
-        <h2>Physics</h2>
-        <p>Studying the full scope of calculus-based classical physics to build a strong foundation for biomedical engineering.      </div>
-      <div class="calculus bme-card">
-        <h2>Calculus</h2>
-        <p>Enhancing my skills by self-learning Calculus 2.</p>
-      </div>
-      <div class="physio bme-card">
-        <h2>Physiology</h2>
-        <p>Learning undergraduate-level physiology from Rice University OpenStax.</p>
-      </div>
-      <div class="aiweb bme-card">
-        <h2>AI and Web Development</h2>
-        <p>Learning AI and web development basics by participating in the CS & Hack Club bootcamp.</p>
-      </div>
-    </div>
+      <!-- Education -->
+      <section class="section reveal" id="education" aria-labelledby="education-title">
+        <div class="container">
+          <h2 id="education-title" class="section-title">Education</h2>
+          <div class="card-list">
+            <article class="card">
+              <h3>BS in Computer Science</h3>
+              <p class="muted">University Name • 2020 – 2024</p>
+              <p>Key coursework: Algorithms, Operating Systems, Databases, Computer Networks, HCI.</p>
+            </article>
+            <article class="card">
+              <h3>Certifications</h3>
+              <p>Cloud Practitioner, Frontend Frameworks, and Systems Design fundamentals.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-    <h1 class="life">Student Life</h1>
-    <div class="student-life-group grid-layout">
-      <div class="athar student-card">
-        <h2>Volunteering</h2>
-        <p>Leaving impact in people’s lives through Athar Club and mentoring students to achieve their goals.</p>
-      </div>
-      <div class="sports student-card">
-        <h2>Sports</h2>
-        <p>Active member of the school football team, reaching semi-finals of regional tournaments.</p>
-      </div>
-      <div class="Debate student-card">
-        <h2>Debate Club</h2>
-        <p>Enhancing public speaking and critical thinking through regular debates and competitions.</p>
-      </div>
-      <div class="MOSP student-card">
-        <h2>MOSP</h2>
-        <p>Mentoring new STEM students and guiding teams through their first capstone project.</p>
-      </div>
-      <div class="flash student-card">
-        <h2>Flash Explain</h2>
-        <p>Helping 3000+ students develop presentation and soft skills as co-founder and head of academics.</p>
-      </div>
-      <div class="Clubs student-card">
-        <h2>Obour Clubs Day</h2>
-        <p>Organized the first Obour Clubs Day to help students explore and join various clubs.</p>
-      </div>
-    </div>
-  </section>
+      <!-- Extracurriculars -->
+      <section class="section reveal" id="extracurriculars" aria-labelledby="extra-title">
+        <div class="container">
+          <h2 id="extra-title" class="section-title">Extracurriculars</h2>
+          <div class="card-list">
+            <article class="card">
+              <h3>Developer Club Lead</h3>
+              <p>Organized weekly workshops and hack nights; mentored junior members.</p>
+            </article>
+            <article class="card">
+              <h3>Open Source Contributor</h3>
+              <p>Submitted PRs to community projects focused on accessibility and performance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="creative-section grid-layout">
-    <h1>Skills</h1>
-    <div class="programming skill-card">
-      <h2>Programming Languages</h2>
-      <p>Python, HTML, CSS</p>
-    </div>
-    <div class="tools skill-card">
-      <h2>Tools & Technologies</h2>
-      <p>GitHub, VS Code, Jupyter Notebooks</p>
-    </div>
-    <div class="leadership skill-card">
-      <h2>Leadership</h2>
-      <p>President of Athar Club and Head of Academics at Flash Explain.</p>
-    </div>
-    <div class="time skill-card">
-      <h2>Time Management</h2>
-      <p>Balancing between learning, extracurriculars, and academics effectively.</p>
-    </div>
-  </section>
+      <!-- Skills -->
+      <section class="section reveal" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <h2 id="skills-title" class="section-title">Skills</h2>
+          <ul class="skills-grid">
+            <li>
+              <span>JavaScript / TypeScript</span>
+              <div class="meter"><span style="--value: 90%"></span></div>
+            </li>
+            <li>
+              <span>HTML / CSS</span>
+              <div class="meter"><span style="--value: 92%"></span></div>
+            </li>
+            <li>
+              <span>React</span>
+              <div class="meter"><span style="--value: 85%"></span></div>
+            </li>
+            <li>
+              <span>Node.js</span>
+              <div class="meter"><span style="--value: 80%"></span></div>
+            </li>
+            <li>
+              <span>Design Systems</span>
+              <div class="meter"><span style="--value: 75%"></span></div>
+            </li>
+            <li>
+              <span>DevOps Basics</span>
+              <div class="meter"><span style="--value: 65%"></span></div>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-  <!-- Achievements Section -->
-  <section id="achievements" class="creative-section">
-    <h1>Achievements</h1>
-    <div class="physics achievement-card">
-      <h2>IPhR</h2>
-      <p>Ranked in top 3% globally and awarded a bronze medal in the International Physics Realm.</p>
-    </div>
-  </section>
+      <!-- Achievements -->
+      <section class="section reveal" id="achievements" aria-labelledby="achievements-title">
+        <div class="container">
+          <h2 id="achievements-title" class="section-title">Achievements</h2>
+          <div class="card-list">
+            <article class="card">
+              <h3>Hackathon Winner</h3>
+              <p>Built a real-time collaboration tool; awarded 1st place among 50+ teams.</p>
+            </article>
+            <article class="card">
+              <h3>Performance Optimization</h3>
+              <p>Improved app load time by 45% via code splitting and image optimization.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="creative-section">
-    <h1>Contact Me</h1>
-    <p>Email: taherahmedasal@gmail.com</p>
-    <p>Phone: +20 109 403 9306</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/taher-ahmed-76b59a357/">LinkedIn</a></p>
-    <form action="https://formspree.io/f/xqaywnkw" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+      <!-- Contact -->
+      <section class="section reveal" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <h2 id="contact-title" class="section-title">Contact</h2>
+          <div class="contact-grid">
+            <form class="contact-form" action="https://formspree.io/f/xbldjzqq" method="POST">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Say hello..." required></textarea>
+              </div>
+              <button class="btn primary" type="submit">Send</button>
+            </form>
+            <div class="contact-info">
+              <p>You can also reach me at:</p>
+              <p><a href="mailto:hello@example.com" class="link">hello@example.com</a></p>
+              <p class="muted">I typically respond within 24–48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>All rights reserved &copy; Taher Ahmed Asal 2025</p>
-  </footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+      </div>
+    </footer>
 
-  <script src="web.js"></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
