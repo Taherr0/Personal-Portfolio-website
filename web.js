@@ -29,29 +29,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Animate About section when in view
+  // About: center photo initially, then fast typewriter pushes photo left
   const aboutSection = document.querySelector('#about');
-  const aboutElements = document.querySelectorAll('#about img, #about p');
+  const aboutContainer = document.querySelector('#about .about-container');
+  const aboutTextEl = document.querySelector('#about .about-text');
+  const photoEl = document.querySelector('#taher');
 
-  aboutElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-  });
+  if (aboutSection && aboutContainer && aboutTextEl && photoEl) {
+    const fullText = aboutTextEl.textContent.trim();
+    aboutTextEl.textContent = '';
+    let typingStarted = false;
 
-  function showAbout() {
-    const rect = aboutSection.getBoundingClientRect();
-    const trigger = window.innerHeight * 0.8;
-    if (rect.top < trigger) {
-      aboutElements.forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-        el.style.transition = 'all 0.8s ease';
-      });
-      window.removeEventListener('scroll', showAbout);
-    }
+    const startTyping = () => {
+      if (typingStarted) return;
+      typingStarted = true;
+      // Switch layout from centered image to normal flow so text can push image left
+      aboutContainer.classList.remove('about-initial');
+
+      let index = 0;
+      const stepChars = 2; // type multiple chars per tick for speed
+      const intervalMs = 10; // fast typing speed
+      const timer = setInterval(() => {
+        index += stepChars;
+        aboutTextEl.textContent = fullText.slice(0, index);
+        if (index >= fullText.length) {
+          aboutTextEl.textContent = fullText; // ensure final text exact
+          clearInterval(timer);
+        }
+      }, intervalMs);
+    };
+
+    // Trigger typing when About enters viewport
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startTyping();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(aboutSection);
   }
-
-  window.addEventListener('scroll', showAbout);
 });
 const form = document.querySelector('form');
 form.addEventListener('submit', async (e) => {
