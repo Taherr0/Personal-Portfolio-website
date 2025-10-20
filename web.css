@@ -29,6 +29,15 @@ header {
   border-radius: 10px;
   margin: 25px auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  /* Add transition for fade-in effect */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.creative-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -341,5 +350,5 @@ footer {
 footer .footer {
   background-color:#1e1e1e;
   font-size: 1rem;
-  padding: 500px;
+  padding: 10px; /* Fixed: removed excessive padding */
 }
