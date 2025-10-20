@@ -29,6 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Intersection Observer for section transitions (fade-in)
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Disconnect after triggering to avoid re-triggering
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 } // Trigger when 10% of the section is visible
+  );
+
+  // Observe all sections for fade-in transition
+  sections.forEach(sec => {
+    sectionObserver.observe(sec);
+  });
+
   // About: center photo initially, then fast typewriter pushes photo left
   const aboutSection = document.querySelector('#about');
   const aboutContainer = document.querySelector('#about .about-container');
@@ -59,33 +78,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }, intervalMs);
     };
 
-    // Trigger typing when About enters viewport
-    const observer = new IntersectionObserver(
+    // Trigger typing when About enters viewport (separate observer for this specific effect)
+    const aboutObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             startTyping();
-            observer.disconnect();
+            aboutObserver.disconnect();
           }
         });
       },
       { threshold: 0.4 }
     );
-    observer.observe(aboutSection);
+    aboutObserver.observe(aboutSection);
   }
-});
-const form = document.querySelector('form');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const response = await fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
+
+  // Form submission handler
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      alert('Message sent successfully!');
+      form.reset();
+    } else {
+      alert('Oops! Something went wrong.');
+    }
   });
-  if (response.ok) {
-    alert('Message sent successfully!');
-    form.reset();
-  } else {
-    alert('Oops! Something went wrong.');
-  }
 });
