@@ -98,7 +98,7 @@ header {
   gap: 15px;
 }
 
-.bme-card, .student-card, .skill-card, .achievement-card {
+.bme-card, .student-card, .skill-card, .achievement-card,.project-card {
   background-color: #3a3a3a;
   padding: 15px;
   border-radius: 10px;
@@ -106,7 +106,7 @@ header {
   transition: transform 0.3s;
 }
 
-.bme-card:hover, .student-card:hover, .skill-card:hover, .achievement-card:hover {
+.bme-card:hover, .student-card:hover, .skill-card:hover, .achievement-card:hover,.project-card:hover {
   transform: scale(1.05);
 }
 
@@ -193,7 +193,6 @@ header {
   margin: 30px auto 0;
   background-color: #1e1e1e;
   padding: 25px;
-  border-radius:
 }
 /* ===== Contact Section Styling Enhancements ===== */
 #contact {
@@ -340,6 +339,9 @@ header {
 #about h1 {
   color: #00e5ff;
 }
+#projects h1 {
+  color: #00e5ff;
+}
 footer {
   background-color: #333;
   padding: 15px 0;
@@ -352,3 +354,5 @@ footer .footer {
   font-size: 1rem;
   padding: 10px; /* Fixed: removed excessive padding */
 }
+
+
